@@ -48,14 +48,15 @@
     <Compile Include="adapter\example\Dice.cs" />
     <Compile Include="adapter\example\Gamer.cs" />
     <Compile Include="adapter\example\IGame.cs" />
-    <Compile Include="adapter\example\Program.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="adapter\study\CelsiusTemperatureAdapter.cs" />
+    <Compile Include="adapter\study\FahrenheitTemperatureSensor.cs" />
+    <Compile Include="adapter\study\ITemperatureSensor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="adapter\study\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
