@@ -1,6 +1,8 @@
 ﻿using GOF.adapter.study;
 using GOF.adapter.example;
 using System;
+using GOF.abstract_factory.example;
+using GOF.abstract_factory.study;
 
 namespace GOF
 {
@@ -27,6 +29,20 @@ namespace GOF
             Console.WriteLine("Температура в Цельсиях: " + celsiusAdapter.GetTemperature());
             Console.WriteLine("-------------------------------------------------------------------");
 
+            Console.WriteLine("\nАбстрактная фабрика, пример");
+            Console.WriteLine("-------------------------------------------------------------------");
+            CarFactory fordCar = new FordFactory();
+            Client firstClient = new Client(fordCar);
+            Console.WriteLine("Максимальная скорость {0} составляет {1} км/час",
+                firstClient.ToString(), firstClient.RunMaxSpeed());
+
+            Console.WriteLine("\nАбстрактная фабрика, контрольное задание");
+            Console.WriteLine("-------------------------------------------------------------------");
+            CarFactory audiCar = new AudiFactory();
+            Client secondClient = new Client(audiCar);
+            Console.WriteLine("Максимальная скорость {0} составляет {1} км/час", 
+                secondClient.ToString(), secondClient.RunMaxSpeed());
+            Console.WriteLine("-------------------------------------------------------------------");
 
         }
     }

@@ -43,6 +43,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="abstract factory\example\AbstractCar.cs" />
+    <Compile Include="abstract factory\example\AbstractEngine.cs" />
+    <Compile Include="abstract factory\example\CarFactory.cs" />
+    <Compile Include="abstract factory\example\Client.cs" />
+    <Compile Include="abstract factory\example\FordCar.cs" />
+    <Compile Include="abstract factory\example\FordEngine.cs" />
+    <Compile Include="abstract factory\example\FordFactory.cs" />
+    <Compile Include="abstract factory\study\AudiCar.cs" />
+    <Compile Include="abstract factory\study\AudiEngine.cs" />
+    <Compile Include="abstract factory\study\AudiFactory.cs" />
     <Compile Include="adapter\example\Adapter.cs" />
     <Compile Include="adapter\example\Coin.cs" />
     <Compile Include="adapter\example\Dice.cs" />
