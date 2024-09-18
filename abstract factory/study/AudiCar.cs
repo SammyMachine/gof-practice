@@ -1,7 +1,8 @@
 ﻿using GOF.abstract_factory.example;
+
 namespace GOF.abstract_factory.study
 {
-    class AudiCar : AbstractCar
+    internal class AudiCar : AbstractCar
     {
         public AudiCar(string name, string bodyType)
         {

@@ -5,7 +5,9 @@ namespace GOF.adapter.example
     public class Coin
     {
         private readonly Random r;
-        public Coin() {
+
+        public Coin()
+        {
             r = new Random();
         }
 

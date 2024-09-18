@@ -2,7 +2,7 @@
 {
     public class Adapter : IGame
     {
-        Coin coin;
+        private Coin coin;
 
         public Adapter(Coin coin)
         {

@@ -16,6 +16,5 @@ namespace GOF.adapter.example
             int res = r.Next(6) + 1;
             return res;
         }
-
     }
 }

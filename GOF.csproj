@@ -58,15 +58,41 @@
     <Compile Include="adapter\example\Dice.cs" />
     <Compile Include="adapter\example\Gamer.cs" />
     <Compile Include="adapter\example\IGame.cs" />
+    <Compile Include="factory method\example\Shipping.cs" />
+    <Compile Include="factory method\example\ShipTransCom.cs" />
+    <Compile Include="factory method\example\TaxiServices.cs" />
+    <Compile Include="factory method\example\TaxiTransCom.cs" />
+    <Compile Include="factory method\example\TransportCompany.cs" />
+    <Compile Include="factory method\example\TransportService.cs" />
+    <Compile Include="factory method\study\DrunkDriverService.cs" />
+    <Compile Include="factory method\study\DrunkDriverTransCom.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="adapter\study\CelsiusTemperatureAdapter.cs" />
     <Compile Include="adapter\study\FahrenheitTemperatureSensor.cs" />
     <Compile Include="adapter\study\ITemperatureSensor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="singleton\example\Log.cs" />
+    <Compile Include="singleton\example\Operation.cs" />
+    <Compile Include="singleton\study\FordFactorySecond.cs" />
+    <Compile Include="strategy\example\BubbleSort.cs" />
+    <Compile Include="strategy\example\Context.cs" />
+    <Compile Include="strategy\example\InsertionSort.cs" />
+    <Compile Include="strategy\example\SelectionSort.cs" />
+    <Compile Include="strategy\example\StrategySort.cs" />
+    <Compile Include="strategy\study\BicycleRoute.cs" />
+    <Compile Include="strategy\study\CarRoute.cs" />
+    <Compile Include="strategy\study\Navigator.cs" />
+    <Compile Include="strategy\study\PedestrianRoute.cs" />
+    <Compile Include="strategy\study\PublicTransportRoute.cs" />
+    <Compile Include="strategy\study\RouteStrategy.cs" />
+    <Compile Include="strategy\study\TouristRoute.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <Content Include="log.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

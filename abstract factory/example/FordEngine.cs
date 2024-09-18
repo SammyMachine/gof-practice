@@ -1,6 +1,6 @@
 ﻿namespace GOF.abstract_factory.example
 {
-    class FordEngine : AbstractEngine
+    internal class FordEngine : AbstractEngine
     {
         public FordEngine()
         {

@@ -2,7 +2,7 @@
 
 namespace GOF.abstract_factory.study
 {
-    class AudiFactory : CarFactory
+    internal class AudiFactory : CarFactory
     {
         public override AbstractCar CreateCar()
         {

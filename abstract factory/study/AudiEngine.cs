@@ -2,7 +2,7 @@
 
 namespace GOF.abstract_factory.study
 {
-    class AudiEngine : AbstractEngine
+    internal class AudiEngine : AbstractEngine
     {
         public AudiEngine()
         {
