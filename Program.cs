@@ -8,6 +8,8 @@ using GOF.singleton.example;
 using GOF.singleton.study;
 using GOF.strategy.example;
 using GOF.strategy.study;
+using GOF.template_method.example;
+using GOF.template_method.study;
 using System;
 using System.IO;
 
@@ -131,6 +133,36 @@ namespace GOF
 
             navigator.SetStrategy(new TouristRoute());
             navigator.BuildRoute("A", "B");
+            Console.WriteLine("-------------------------------------------------------------------");
+
+            Console.WriteLine("\nШаблонный метод, пример");
+            Console.WriteLine("-------------------------------------------------------------------");
+            Console.Write("Введите начальное значение: ");
+            int f = int.Parse(Console.ReadLine());
+
+            Console.Write("Введите конечное значение: ");
+            int l = int.Parse(Console.ReadLine());
+
+            Console.Write("Введите шаг прогрессии: ");
+            int h = int.Parse(Console.ReadLine());
+            Progression val = new ArithmeticProgression(f, l, h);
+            val.TemplateMethod();
+            Console.WriteLine("-------------------------------------------------------------------");
+
+            Console.WriteLine("\nШаблонный метод, контрольное задание");
+            Console.WriteLine("-------------------------------------------------------------------");
+
+            Console.Write("Введите начальное значение: ");
+            f = int.Parse(Console.ReadLine());
+
+            Console.Write("Введите конечное значение: ");
+            l = int.Parse(Console.ReadLine());
+
+            Console.Write("Введите шаг прогрессии: ");
+            h = int.Parse(Console.ReadLine());
+            val = new GeometricProgression(f, l, h);
+            val.TemplateMethod();
+
             Console.WriteLine("-------------------------------------------------------------------");
         }
 

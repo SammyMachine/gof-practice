@@ -86,6 +86,9 @@
     <Compile Include="strategy\study\PublicTransportRoute.cs" />
     <Compile Include="strategy\study\RouteStrategy.cs" />
     <Compile Include="strategy\study\TouristRoute.cs" />
+    <Compile Include="template method\example\ArithmeticProgression.cs" />
+    <Compile Include="template method\example\Progression.cs" />
+    <Compile Include="template method\study\GeometricProgression.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
