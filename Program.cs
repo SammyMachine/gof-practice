@@ -2,6 +2,8 @@
 using GOF.abstract_factory.study;
 using GOF.adapter.example;
 using GOF.adapter.study;
+using GOF.facade.example;
+using GOF.facade.study;
 using GOF.factory_method.example;
 using GOF.factory_method.study;
 using GOF.singleton.example;
@@ -70,10 +72,12 @@ namespace GOF
             compService = drunkCompany.Create("Пьяный водитель", 3);
             double distD = 20.1;
             PrintTransportService(compService, distD);
+
             Console.WriteLine("-------------------------------------------------------------------");
 
             Console.WriteLine("\nОдиночка, пример");
             Console.WriteLine("-------------------------------------------------------------------");
+
             Log lg = Log.MyLog;
             lg.LogExecution("Метод Main()");
             double op = Operation.Run('-', 35);
@@ -86,18 +90,22 @@ namespace GOF
                     Console.WriteLine(line);
                 }
             }
+
             Console.WriteLine("-------------------------------------------------------------------");
 
             Console.WriteLine("\nОдиночка, контрольное задание");
+
             Console.WriteLine("-------------------------------------------------------------------");
             CarFactory fordCarSecond = FordFactorySecond.Instance;
             Client thirdClient = new Client(fordCarSecond);
             Console.WriteLine("Максимальная скорость {0} составляет {1} км/час",
                 thirdClient.ToString(), thirdClient.RunMaxSpeed());
+
             Console.WriteLine("-------------------------------------------------------------------");
 
             Console.WriteLine("\nСтратегия, пример");
             Console.WriteLine("-------------------------------------------------------------------");
+
             int[] arr1 = { 31, 15, 10, 2, 4, 2, 14, 23, 12, 66 };
             StrategySort sort = new SelectionSort();
             Context context = new Context(sort, arr1);
@@ -115,10 +123,12 @@ namespace GOF
             context = new Context(sort, arr3);
             context.Sort();
             context.PrintArray();
+
             Console.WriteLine("-------------------------------------------------------------------");
 
             Console.WriteLine("\nСтратегия, контрольное задание");
             Console.WriteLine("-------------------------------------------------------------------");
+
             Navigator navigator = new Navigator(new CarRoute());
             navigator.BuildRoute("A", "B");
 
@@ -133,10 +143,12 @@ namespace GOF
 
             navigator.SetStrategy(new TouristRoute());
             navigator.BuildRoute("A", "B");
+
             Console.WriteLine("-------------------------------------------------------------------");
 
             Console.WriteLine("\nШаблонный метод, пример");
             Console.WriteLine("-------------------------------------------------------------------");
+
             Console.Write("Введите начальное значение: ");
             int f = int.Parse(Console.ReadLine());
 
@@ -147,10 +159,6 @@ namespace GOF
             int h = int.Parse(Console.ReadLine());
             Progression val = new ArithmeticProgression(f, l, h);
             val.TemplateMethod();
-            Console.WriteLine("-------------------------------------------------------------------");
-
-            Console.WriteLine("\nШаблонный метод, контрольное задание");
-            Console.WriteLine("-------------------------------------------------------------------");
 
             Console.Write("Введите начальное значение: ");
             f = int.Parse(Console.ReadLine());
@@ -164,12 +172,81 @@ namespace GOF
             val.TemplateMethod();
 
             Console.WriteLine("-------------------------------------------------------------------");
+
+            Console.WriteLine("\nШаблонный метод, контрольное задание");
+            Console.WriteLine("-------------------------------------------------------------------");
+
+            Console.WriteLine("Приготовление эспрессо:");
+            Coffee espresso = new Espresso();
+            espresso.MakeCoffee();
+
+            Console.WriteLine("\nПриготовление латте:");
+            Coffee latte = new Latte();
+            latte.MakeCoffee();
+
+            Console.WriteLine("-------------------------------------------------------------------");
+
+            Console.WriteLine("\nФасад, пример");
+            Console.WriteLine("-------------------------------------------------------------------");
+
+            var drive = new Drive();
+            var power = new Power();
+            var notification = new Notification();
+            var microwave = new Microwave(drive, power, notification);
+
+            power.powerevent += power_powerevent;
+            drive.driveevent += drive_driveevent;
+            notification.notificationevent += notification_notificationevent;
+
+            Console.WriteLine("Разморозка");
+            microwave.Defrost();
+
+            Console.WriteLine("-------------------------------------------------------------------");
+
+            Console.WriteLine("\nФасад, контрольное задание");
+            Console.WriteLine("-------------------------------------------------------------------");
+
+            var cookingMicrowave = new CookingMicrowave(drive, power, notification);
+
+            Console.WriteLine("Разморозка:");
+            cookingMicrowave.Defrost();
+
+            Console.WriteLine("\nПриготовление:");
+            cookingMicrowave.Cook();
+
+            Console.WriteLine("-------------------------------------------------------------------");
+
+            //Console.WriteLine("\nШаблонный метод, контрольное задание");
+            //Console.WriteLine("-------------------------------------------------------------------");
+            //Console.WriteLine("-------------------------------------------------------------------");
+
+            //Console.WriteLine("\nШаблонный метод, контрольное задание");
+            //Console.WriteLine("-------------------------------------------------------------------");
+            //Console.WriteLine("-------------------------------------------------------------------");
         }
 
         private static void PrintTransportService(TransportService compTax, double distg)
         {
             Console.WriteLine("Компания {0}, расстояние {1}, стоимость: {2}",
             compTax.ToString(), distg, compTax.CostTransportation(distg));
+        }
+
+        private static void notification_notificationevent(object sender, EventArgs e)
+        {
+            Notification n = (Notification)sender;
+            Console.WriteLine(n.ToString());
+        }
+
+        private static void drive_driveevent(object sender, EventArgs e)
+        {
+            Drive d = (Drive)sender;
+            Console.WriteLine(d.ToString());
+        }
+
+        private static void power_powerevent(object sender, EventArgs e)
+        {
+            Power p = (Power)sender;
+            Console.WriteLine(p.ToString());
         }
     }
 }

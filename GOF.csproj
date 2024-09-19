@@ -58,6 +58,11 @@
     <Compile Include="adapter\example\Dice.cs" />
     <Compile Include="adapter\example\Gamer.cs" />
     <Compile Include="adapter\example\IGame.cs" />
+    <Compile Include="facade\example\Drive.cs" />
+    <Compile Include="facade\example\Microwave.cs" />
+    <Compile Include="facade\example\Notification.cs" />
+    <Compile Include="facade\example\Power.cs" />
+    <Compile Include="facade\study\CookingMicrowave.cs" />
     <Compile Include="factory method\example\Shipping.cs" />
     <Compile Include="factory method\example\ShipTransCom.cs" />
     <Compile Include="factory method\example\TaxiServices.cs" />
@@ -88,7 +93,10 @@
     <Compile Include="strategy\study\TouristRoute.cs" />
     <Compile Include="template method\example\ArithmeticProgression.cs" />
     <Compile Include="template method\example\Progression.cs" />
-    <Compile Include="template method\study\GeometricProgression.cs" />
+    <Compile Include="template method\example\GeometricProgression.cs" />
+    <Compile Include="template method\study\Coffee.cs" />
+    <Compile Include="template method\study\Espresso.cs" />
+    <Compile Include="template method\study\Latte.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
