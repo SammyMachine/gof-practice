@@ -2,6 +2,7 @@
 using GOF.abstract_factory.study;
 using GOF.adapter.example;
 using GOF.adapter.study;
+using GOF.chain_of_responsibility.example;
 using GOF.facade.example;
 using GOF.facade.study;
 using GOF.factory_method.example;
@@ -215,6 +216,40 @@ namespace GOF
             cookingMicrowave.Cook();
 
             Console.WriteLine("-------------------------------------------------------------------");
+
+            Console.WriteLine("\nЦепочка обязанностей, пример");
+            Console.WriteLine("-------------------------------------------------------------------");
+
+            Receiver receiver = new Receiver(false, true, true);
+            PaymentHandler bankPaymentHandler = new BankPaymentHandler();
+            PaymentHandler moneyPaymentHnadler = new MoneyPaymentHandler();
+            PaymentHandler paypalPaymentHandler = new PayPalPaymentHandler();
+            bankPaymentHandler.Successor = paypalPaymentHandler;
+            paypalPaymentHandler.Successor = moneyPaymentHnadler;
+            bankPaymentHandler.Handle(receiver);
+
+            Console.WriteLine("-------------------------------------------------------------------");
+
+            Console.WriteLine("\nЦепочка обязанностей, контрольное задание");
+            Console.WriteLine("-------------------------------------------------------------------");
+
+            Receiver receiverSecond = new Receiver(false, true, false);
+            PaymentHandler bankPaymentHandlerSecond = new BankPaymentHandler();
+            PaymentHandler moneyPaymentHandlerSecond = new MoneyPaymentHandler();
+            PaymentHandler paypalPaymentHandlerSecond = new PayPalPaymentHandler();
+            paypalPaymentHandlerSecond.Successor = bankPaymentHandlerSecond;
+            bankPaymentHandlerSecond.Successor = moneyPaymentHandlerSecond;
+            bankPaymentHandlerSecond.Handle(receiverSecond);
+
+            Console.WriteLine("-------------------------------------------------------------------");
+
+            //Console.WriteLine("\nШаблонный метод, контрольное задание");
+            //Console.WriteLine("-------------------------------------------------------------------");
+            //Console.WriteLine("-------------------------------------------------------------------");
+
+            //Console.WriteLine("\nШаблонный метод, контрольное задание");
+            //Console.WriteLine("-------------------------------------------------------------------");
+            //Console.WriteLine("-------------------------------------------------------------------");
 
             //Console.WriteLine("\nШаблонный метод, контрольное задание");
             //Console.WriteLine("-------------------------------------------------------------------");

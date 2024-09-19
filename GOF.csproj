@@ -58,6 +58,9 @@
     <Compile Include="adapter\example\Dice.cs" />
     <Compile Include="adapter\example\Gamer.cs" />
     <Compile Include="adapter\example\IGame.cs" />
+    <Compile Include="chain of responsibility\example\ConcretePaymentHandler.cs" />
+    <Compile Include="chain of responsibility\example\PaymentHandler.cs" />
+    <Compile Include="chain of responsibility\example\Reciever.cs" />
     <Compile Include="facade\example\Drive.cs" />
     <Compile Include="facade\example\Microwave.cs" />
     <Compile Include="facade\example\Notification.cs" />
