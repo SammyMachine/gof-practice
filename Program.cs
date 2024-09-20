@@ -3,6 +3,9 @@ using GOF.abstract_factory.study;
 using GOF.adapter.example;
 using GOF.adapter.study;
 using GOF.chain_of_responsibility.example;
+using GOF.command.example;
+using GOF.decorator.example;
+using GOF.decorator.study;
 using GOF.facade.example;
 using GOF.facade.study;
 using GOF.factory_method.example;
@@ -243,21 +246,64 @@ namespace GOF
 
             Console.WriteLine("-------------------------------------------------------------------");
 
-            //Console.WriteLine("\nШаблонный метод, контрольное задание");
-            //Console.WriteLine("-------------------------------------------------------------------");
-            //Console.WriteLine("-------------------------------------------------------------------");
+            Console.WriteLine("\nКоманда, пример и контрольное задание");
+            Console.WriteLine("-------------------------------------------------------------------");
 
-            //Console.WriteLine("\nШаблонный метод, контрольное задание");
-            //Console.WriteLine("-------------------------------------------------------------------");
-            //Console.WriteLine("-------------------------------------------------------------------");
+            var calculator = new Calculator();
+            double result = 0;
+            result = calculator.Add(5);
+            Console.WriteLine($"Add 5: {result}");
 
-            //Console.WriteLine("\nШаблонный метод, контрольное задание");
-            //Console.WriteLine("-------------------------------------------------------------------");
-            //Console.WriteLine("-------------------------------------------------------------------");
+            result = calculator.Add(4);
+            Console.WriteLine($"Add 4: {result}");
 
-            //Console.WriteLine("\nШаблонный метод, контрольное задание");
-            //Console.WriteLine("-------------------------------------------------------------------");
-            //Console.WriteLine("-------------------------------------------------------------------");
+            result = calculator.Sub(2);
+            Console.WriteLine($"Sub 2: {result}");
+
+            result = calculator.Mul(3);
+            Console.WriteLine($"Mul 3: {result}");
+
+            result = calculator.Div(4);
+            Console.WriteLine($"Div 4: {result}");
+
+            calculator.Undo(3);
+            Console.WriteLine("Undo last operation: " + calculator.Add(0));
+
+            calculator.Redo(1);
+            Console.WriteLine("Redo last operation: " + calculator.Add(0));
+
+            Console.WriteLine("-------------------------------------------------------------------");
+
+            Console.WriteLine("\nДекоратор, пример");
+            Console.WriteLine("-------------------------------------------------------------------");
+
+            Renault reno = new Renault("Рено", "Renault LOGAN Active", 499.0);
+            Print(reno);
+            AutoBase myreno = new MediaNAV(reno, "Навигация");
+            Print(myreno);
+            AutoBase newmyReno = new SystemSecurity(new MediaNAV(reno, "Навигация"), "Безопасность");
+            Print(newmyReno);
+
+            Console.WriteLine("-------------------------------------------------------------------");
+
+            Console.WriteLine("\nДекоратор, контрольное задание");
+            Console.WriteLine("-------------------------------------------------------------------");
+
+            Mercedes merc = new Mercedes("Mercedes", "Mercedes-Benz C-Class", 1200.0);
+            Print(merc);
+
+            AutoBase myMerc = new LeatherInterior(merc, "Белый кожаный салон");
+            Print(myMerc);
+
+            AutoBase newMyMerc = new PanoramicRoof(new LeatherInterior(merc, "Белый кожаный салон"), "Панорамная крыша с затемнением");
+            Print(newMyMerc);
+
+            Console.WriteLine("-------------------------------------------------------------------");
+        }
+
+        private static void Print(AutoBase av)
+        {
+            Console.WriteLine(av.ToString());
         }
 
         private static void PrintTransportService(TransportService compTax, double distg)
